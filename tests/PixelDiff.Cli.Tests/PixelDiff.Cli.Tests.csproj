@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Covers the runner. It targets the Windows flavour of the framework because PixelDiff.Cli does,
+    but nothing here needs a desktop session: the capture interface is replaced by a stub, so the
+    report, the continuation behaviour and the exit codes are exercised without a screen.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <!-- Required for dotnet test on the .NET 10 SDK, which only drives Microsoft.Testing.Platform runners. -->
+    <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+    <!-- A test assembly has no consumers of its public surface, so XML documentation on every test adds noise without value. -->
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\PixelDiff.Cli\PixelDiff.Cli.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="OpenCvSharp4.runtime.win" />
+  </ItemGroup>
+
+</Project>

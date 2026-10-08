@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Command line runner intended for build servers. It references the Windows capture
+    assembly and carries the native OpenCV runtime so the published executable is self contained.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PixelDiff.Cli</RootNamespace>
+    <AssemblyName>pixeldiff</AssemblyName>
+    <!--
+      The manifest declares per monitor DPI awareness so screen capture coordinates match physical
+      pixels rather than a virtualised, scaled surface. Without it a capture can come back at the
+      wrong size, which a build server would report as a size mismatch that is really a scaling artefact.
+    -->
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- The commands are internal because nothing outside this executable composes them. -->
+    <InternalsVisibleTo Include="PixelDiff.Cli.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PixelDiff.Core\PixelDiff.Core.csproj" />
+    <ProjectReference Include="..\PixelDiff.Capture.Windows\PixelDiff.Capture.Windows.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenCvSharp4.runtime.win" />
+  </ItemGroup>
+
+</Project>

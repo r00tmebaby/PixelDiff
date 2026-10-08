@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Windows specific half of the tool: screen and window capture through GDI and DWM. It is split
+    out of PixelDiff.Core so the comparison engine keeps targeting plain net10.0 and stays usable
+    from non Windows hosts, while everything that needs user32, gdi32 or System.Drawing lives here.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <RootNamespace>PixelDiff.Capture.Windows</RootNamespace>
+    <AssemblyName>PixelDiff.Capture.Windows</AssemblyName>
+    <!-- Required by the LibraryImport generator, which emits unsafe marshalling stubs. -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PixelDiff.Core\PixelDiff.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenCvSharp4.Extensions" />
+    <PackageReference Include="OpenCvSharp4.runtime.win" />
+    <PackageReference Include="System.Drawing.Common" />
+  </ItemGroup>
+
+</Project>

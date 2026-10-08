@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Platform neutral half of the tool: comparison maths, diff rendering and the
+    baseline store. Only the managed OpenCvSharp binding is referenced here. The
+    native runtime is pulled in by the executables so this assembly stays portable.
+  -->
+  <PropertyGroup>
+    <RootNamespace>PixelDiff.Core</RootNamespace>
+    <AssemblyName>PixelDiff.Core</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenCvSharp4" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Desktop review surface. It targets the Windows flavour of the framework because it
+    references the capture assembly, and it carries the native OpenCV runtime that the
+    platform neutral Core assembly deliberately leaves out.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PixelDiff.App</RootNamespace>
+    <AssemblyName>PixelDiff</AssemblyName>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+
+    <!--
+      The manifest declares per monitor DPI awareness for the whole process. Without it Windows
+      hands the capture code virtualised coordinates on scaled displays, so window rectangles and
+      captured pixels disagree. Declaring it makes every coordinate a physical pixel.
+    -->
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PixelDiff.Core\PixelDiff.Core.csproj" />
+    <ProjectReference Include="..\PixelDiff.Capture.Windows\PixelDiff.Capture.Windows.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" />
+    <PackageReference Include="Avalonia.Desktop" />
+    <PackageReference Include="Avalonia.Themes.Fluent" />
+    <PackageReference Include="Avalonia.Fonts.Inter" />
+    <PackageReference Include="CommunityToolkit.Mvvm" />
+    <PackageReference Include="OpenCvSharp4.runtime.win" />
+  </ItemGroup>
+
+</Project>

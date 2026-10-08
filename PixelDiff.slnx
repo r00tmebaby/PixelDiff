@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/PixelDiff.App/PixelDiff.App.csproj" />
+    <Project Path="src/PixelDiff.Capture.Windows/PixelDiff.Capture.Windows.csproj" />
+    <Project Path="src/PixelDiff.Cli/PixelDiff.Cli.csproj" />
+    <Project Path="src/PixelDiff.Core/PixelDiff.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/PixelDiff.Cli.Tests/PixelDiff.Cli.Tests.csproj" />
+    <Project Path="tests/PixelDiff.Core.Tests/PixelDiff.Core.Tests.csproj" />
+  </Folder>
+</Solution>

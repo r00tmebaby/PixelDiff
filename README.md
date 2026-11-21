@@ -1,5 +1,6 @@
 # PixelDiff
 
+[![Build and release](https://github.com/r00tmebaby/PixelDiff/actions/workflows/release.yml/badge.svg)](https://github.com/r00tmebaby/PixelDiff/actions/workflows/release.yml)
 [![Release](https://img.shields.io/github/v/release/r00tmebaby/PixelDiff)](https://github.com/r00tmebaby/PixelDiff/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/r00tmebaby/PixelDiff/total)](https://github.com/r00tmebaby/PixelDiff/releases)
 [![Licence](https://img.shields.io/github/license/r00tmebaby/PixelDiff)](LICENSE)

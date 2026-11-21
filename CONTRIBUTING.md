@@ -74,3 +74,7 @@ The build is strict.
 - Package versions are managed centrally in `Directory.Packages.props`. A `PackageReference` in a project file must not carry a `Version`; add or change the version in the central file.
 
 Run `dotnet build` and `dotnet test` before submitting a change. Both must finish with no warnings and no failures.
+
+## Releases
+
+Every push to `main` that changes more than documentation is built, tested and published by `.github/workflows/release.yml`. The version is one above the highest existing release, `0.1.<n + 1>`, and the tag is `v<version>`. A release carries the desktop application and the command line runner as two self contained zips with their SHA-256 checksums. Pull requests are built and tested the same way, and nothing is released.

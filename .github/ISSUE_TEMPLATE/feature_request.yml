@@ -1,0 +1,16 @@
+name: Feature request
+description: Something PixelDiff should be able to do.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do
+      description: The situation PixelDiff does not handle well today.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would help
+      description: How you imagine it working. Alternatives you considered are welcome.

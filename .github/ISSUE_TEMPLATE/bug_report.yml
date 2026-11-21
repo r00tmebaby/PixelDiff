@@ -1,0 +1,38 @@
+name: Bug report
+description: Something PixelDiff does wrong or fails to do.
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what you saw instead.
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Where
+      options:
+        - Desktop application
+        - Command line runner
+        - Both or not sure
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: PixelDiff version
+      description: The release you downloaded, or the commit you built.
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version and display scaling
+      placeholder: Windows 11 24H2, 125 percent
+  - type: textarea
+    id: details
+    attributes:
+      label: Output, report or images
+      description: The runner's output, report.json, or the baseline, candidate and diff images if you can share them.
